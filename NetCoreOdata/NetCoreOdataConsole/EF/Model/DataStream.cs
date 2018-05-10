@@ -7,6 +7,7 @@ using System.Text;
 
 namespace NetCoreOdataConsole
 {
+    [Table("datastream")]
     public partial class Datastream
     {
         public Datastream()
