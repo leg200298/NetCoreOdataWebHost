@@ -1,0 +1,2 @@
+# NetCoreOdataWebHost
+OdataAPI
