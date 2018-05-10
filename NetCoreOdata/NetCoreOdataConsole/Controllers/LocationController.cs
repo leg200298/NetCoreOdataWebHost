@@ -7,28 +7,28 @@ using System.Text;
 
 namespace NetCoreOdataConsole
 {
-    public class SensorController : Controller
+    public class LocationController : Controller
     {
         private readonly DBContext _db;
-        public SensorController(DBContext db)
+        public LocationController(DBContext db)
         {
             _db = db;
         }
 
         [HttpGet]
-        [Route("Odata/Sensor")]
+        [Route("Odata/Location")]
         [EnableQuery]
         public IActionResult Get()
         {
-            return Ok(_db.Sensor.AsQueryable());
+            return Ok(_db.Location.AsQueryable());
         }
 
         [HttpGet]
-        [Route("Odata/Sensor({id})")]
+        [Route("Odata/Location({id})")]
         [EnableQuery]
         public IActionResult Get(int id)
         {
-            return Ok(_db.Sensor.Where(s => s.Id == id).AsQueryable());
+            return Ok(_db.Location.Where(s => s.Id == id).AsQueryable());
         }
     }
 }

@@ -7,28 +7,28 @@ using System.Text;
 
 namespace NetCoreOdataConsole
 {
-    public class SensorController : Controller
+    public class ThingController : Controller
     {
         private readonly DBContext _db;
-        public SensorController(DBContext db)
+        public ThingController(DBContext db)
         {
             _db = db;
         }
 
         [HttpGet]
-        [Route("Odata/Sensor")]
+        [Route("Odata/Thing")]
         [EnableQuery]
         public IActionResult Get()
         {
-            return Ok(_db.Sensor.AsQueryable());
+            return Ok(_db.Thing.AsQueryable());
         }
 
         [HttpGet]
-        [Route("Odata/Sensor({id})")]
+        [Route("Odata/Thing({id})")]
         [EnableQuery]
         public IActionResult Get(int id)
         {
-            return Ok(_db.Sensor.Where(s => s.Id == id).AsQueryable());
+            return Ok(_db.Thing.Where(s => s.Id == id).AsQueryable());
         }
     }
 }
