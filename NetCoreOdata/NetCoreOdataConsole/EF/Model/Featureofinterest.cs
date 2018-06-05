@@ -15,9 +15,10 @@ namespace NetCoreOdataConsole
         {
             this.Observation = new HashSet<Observation>();
         }
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         [Required]
         [MaxLength(50)]

@@ -26,7 +26,7 @@ namespace NetCoreOdataConsole
         [HttpGet]
         [Route("Odata/Sensor({id})")]
         [EnableQuery]
-        public IActionResult Get(int id)
+        public IActionResult Get(Guid id)
         {
             return Ok(_db.Sensor.Where(s => s.Id == id).AsQueryable());
         }

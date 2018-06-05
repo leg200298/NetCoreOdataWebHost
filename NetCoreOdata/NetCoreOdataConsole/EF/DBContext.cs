@@ -12,9 +12,17 @@ namespace NetCoreOdataConsole
         private string _connectionString;
         private IConfiguration _configuration;
 
-        public DBContext(DbContextOptions options):base(options)
+        public DBContext(string connection)
+        {
+            _connectionString = connection;
+        }
+        public DBContext(DbContextOptions options) : base(options)
         {
 
+        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseMySql(_connectionString);
         }
 
         public virtual DbSet<Observation> Observation { get; set; }

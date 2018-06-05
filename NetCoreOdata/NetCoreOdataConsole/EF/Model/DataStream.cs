@@ -14,9 +14,10 @@ namespace NetCoreOdataConsole
         {
             this.Observation = new HashSet<Observation>();
         }
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         [Required]
         [MaxLength(50)]
@@ -39,13 +40,13 @@ namespace NetCoreOdataConsole
         public DateTime? ResultTime { get; set; }
 
         [Required]
-        public int Thing_Id { get; set; }
+        public Guid Thing_Id { get; set; }
 
         [Required]
-        public int Sensor_Id { get; set; }
+        public Guid Sensor_Id { get; set; }
 
         [Required]
-        public int ObervedProperty_Id { get; set; }
+        public Guid ObervedProperty_Id { get; set; }
 
         [JsonIgnore]
         [ForeignKey("ObervedProperty_Id")]

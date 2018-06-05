@@ -12,7 +12,7 @@ namespace NetCoreOdataConsole
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         public DateTime? Phenomenon_Time { get; set; }
 
@@ -31,10 +31,10 @@ namespace NetCoreOdataConsole
         public string Parameters { get; set; }
 
         [Required]
-        public int FeatureOflnterest_Id { get; set; }
+        public Guid FeatureOflnterest_Id { get; set; }
 
         [Required]
-        public int Datastream_Id { get; set; }
+        public Guid Datastream_Id { get; set; }
 
         [JsonIgnore]
         [ForeignKey("Datastream_Id")]

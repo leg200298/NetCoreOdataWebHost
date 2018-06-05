@@ -7,24 +7,24 @@ using System.Text;
 
 namespace NetCoreOdataConsole
 {
-    [Table("historicallocation")]
-    public partial class Historicallocation
+    [Table("industriaArea")]
+    public class IndustriaArea
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
 
         [Required]
-        public Guid Thing_Id { get; set; }
+        [MaxLength(50)]
+        public string Name { get; set; }
+
+        [MaxLength(150)]
+        public string Coordinate { get; set; }
+
+        [MaxLength(150)]
+        public string Address { get; set; }
 
         [Required]
-        public Guid Location_Id { get; set; }
-
-        public DateTime? Time { get; set; }
-
-        [JsonIgnore]
-        [ForeignKey("Location_Id")]
-        public virtual Location Location { get; set; }
+        public Guid Thing_Id { get; set; }
 
         [JsonIgnore]
         [ForeignKey("Thing_Id")]

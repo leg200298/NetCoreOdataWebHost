@@ -19,16 +19,25 @@ namespace NetCoreOdataConsole
         [Route("Odata/Datastream")]
         [EnableQuery]
         public IActionResult Get()
-        {
+        {         
             return Ok(_db.Datastream.AsQueryable());
         }
 
         [HttpGet]
         [Route("Odata/Datastream({id})")]
         [EnableQuery]
-        public IActionResult Get(int id)
+        public IActionResult Get(Guid id)
         {
             return Ok(_db.Datastream.Where(s => s.Id == id).AsQueryable());
+        }
+        /// <summary>
+        /// XU.6U4
+        /// </summary>
+        /// <param name="disposing"></param>
+        protected override void Dispose(bool disposing)
+        {
+            _db.Dispose();
+            base.Dispose(disposing);
         }
     }
 }

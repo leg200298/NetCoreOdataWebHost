@@ -26,7 +26,7 @@ namespace NetCoreOdataConsole
         [HttpGet]
         [Route("Odata/Observedproperty({id})")]
         [EnableQuery]
-        public IActionResult Get(int id)
+        public IActionResult Get(Guid id)
         {
             return Ok(_db.Observedproperty.Where(s => s.Id == id).AsQueryable());
         }

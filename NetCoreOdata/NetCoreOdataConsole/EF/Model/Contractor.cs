@@ -7,29 +7,25 @@ using System.Text;
 
 namespace NetCoreOdataConsole
 {
-    [Table("observedproperty")]
-    public partial class Observedproperty
+    [Table("contractor")]
+    class Contractor
     {
-
-        public Observedproperty()
-        {
-            this.Datastream = new HashSet<Datastream>();
-        }
-
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
 
+        [Required]
         [MaxLength(50)]
         public string Name { get; set; }
 
         [MaxLength(150)]
-        public string Definition { get; set; }
+        public string Mail { get; set; }
 
-        [MaxLength(300)]
-        public string Description { get; set; }
+        [Required]
+        public Guid Thing_Id { get; set; }
 
         [JsonIgnore]
-        public virtual ICollection<Datastream> Datastream { get; set; }
+        [ForeignKey("Thing_Id")]
+        public virtual Thing Thing { get; set; }
     }
 }

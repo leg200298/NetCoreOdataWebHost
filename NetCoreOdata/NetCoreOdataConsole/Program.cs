@@ -51,7 +51,7 @@ namespace NetCoreOdataConsole
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
-            services.AddDbContext<DBContext>(options => options.UseMySQL(_configuration["MysqlConnectionString"]));
+            services.AddDbContext<DBContext>(options => options.UseMySql(_configuration["MysqlConnectionString"]));
             services.AddOData();
             services.AddMvc();
             services.AddSwaggerGen(c =>

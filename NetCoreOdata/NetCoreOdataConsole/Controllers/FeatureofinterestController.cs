@@ -26,7 +26,7 @@ namespace NetCoreOdataConsole
         [HttpGet]
         [Route("Odata/Featureofinterest({id})")]
         [EnableQuery]
-        public IActionResult Get(int id)
+        public IActionResult Get(Guid id)
         {
             return Ok(_db.Featureofinterest.Where(s => s.Id == id).AsQueryable());
         }
