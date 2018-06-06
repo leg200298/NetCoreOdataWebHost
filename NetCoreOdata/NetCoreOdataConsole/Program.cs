@@ -20,18 +20,24 @@ namespace NetCoreOdataConsole
     {
         static void Main(string[] args)
         {
-            var host = new WebHostBuilder()
-                 .UseContentRoot(Directory.GetCurrentDirectory())
-                 .UseIISIntegration()
-                 .UseStartup<Startup>()
-                 .UseHttpSys(options =>
-                 {
-                     options.Authentication.Schemes = AuthenticationSchemes.None;
-                     options.Authentication.AllowAnonymous = true;
-                     options.MaxConnections = 100;
-                     options.UrlPrefixes.Add("http://+:32767/");
-                 })
-                 .Build();
+            using (DBContext db =new DBContext("server=192.168.8.144;database=ogc;user=root;password=root;SslMode=none"))
+            {
+                object industrial_Area = db.IndustrialArea.AsEnumerable();
+                object thing = db.Thing.AsEnumerable();
+
+            };
+                var host = new WebHostBuilder()
+                     .UseContentRoot(Directory.GetCurrentDirectory())
+                     .UseIISIntegration()
+                     .UseStartup<Startup>()
+                     .UseHttpSys(options =>
+                     {
+                         options.Authentication.Schemes = AuthenticationSchemes.None;
+                         options.Authentication.AllowAnonymous = true;
+                         options.MaxConnections = 100;
+                         options.UrlPrefixes.Add("http://+:32767/");
+                     })
+                     .Build();
 
             host.Run();
         }

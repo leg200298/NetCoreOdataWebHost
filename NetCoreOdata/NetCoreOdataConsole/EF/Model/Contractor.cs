@@ -22,7 +22,6 @@ namespace NetCoreOdataConsole
         public string Mail { get; set; }
 
         [JsonIgnore]
-        [ForeignKey("Thing_Id")]
         public virtual Thing Thing { get; set; }
     }
 }
