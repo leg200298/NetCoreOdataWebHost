@@ -34,5 +34,19 @@ namespace NetCoreOdataConsole
         public virtual ICollection<Datastream> Datastream { get; set; }
         [JsonIgnore]
         public virtual ICollection<Historicallocation> Historicallocation { get; set; }
+
+        [Required]
+        public Guid IndustriaArea_Id { get; set; }
+
+        [Required]
+        public Guid Contractor_Id { get; set; }
+
+        [JsonIgnore]
+        [ForeignKey("Contractor_Id")]
+        public virtual Contractor Contractor { get; set; }
+
+        [JsonIgnore]
+        [ForeignKey("IndustriaArea_Id")]
+        public virtual IndustrialArea IndustriaArea { get; set; }
     }
 }
