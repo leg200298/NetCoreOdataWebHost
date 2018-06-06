@@ -8,7 +8,7 @@ using System.Text;
 namespace NetCoreOdataConsole
 {
     [Table("contractor")]
-    class Contractor
+    public class Contractor
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -20,9 +20,6 @@ namespace NetCoreOdataConsole
 
         [MaxLength(150)]
         public string Mail { get; set; }
-
-        [Required]
-        public Guid Thing_Id { get; set; }
 
         [JsonIgnore]
         [ForeignKey("Thing_Id")]

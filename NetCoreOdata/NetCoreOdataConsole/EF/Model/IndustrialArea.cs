@@ -7,8 +7,8 @@ using System.Text;
 
 namespace NetCoreOdataConsole
 {
-    [Table("industriaArea")]
-    public class IndustriaArea
+    [Table("industrialArea")]
+    public class IndustrialArea
     {
         [Key]
         public Guid Id { get; set; }
@@ -22,9 +22,6 @@ namespace NetCoreOdataConsole
 
         [MaxLength(150)]
         public string Address { get; set; }
-
-        [Required]
-        public Guid Thing_Id { get; set; }
 
         [JsonIgnore]
         [ForeignKey("Thing_Id")]

@@ -24,7 +24,8 @@ namespace NetCoreOdataConsole
         {
             optionsBuilder.UseMySql(_connectionString);
         }
-
+        public virtual DbSet<Contractor> Contractor { get; set; }
+        public virtual DbSet<IndustrialArea> IndustrialArea { get; set; }
         public virtual DbSet<Observation> Observation { get; set; }
         public virtual DbSet<Featureofinterest> Featureofinterest { get; set; }
         public virtual DbSet<Observedproperty> Observedproperty { get; set; }
